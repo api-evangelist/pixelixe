@@ -1,10 +1,11 @@
 openapi: 3.1.0
 info:
-  title: Pixelixe API
+  title: Pixelixe
   version: '2.0'
-  description: >-
-    API for Pixelixe automated image generation and customizable graphic editing
-    tools.
+  description: |-
+
+    High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,
+    Contrast, Opacify, Blur and transform your photos with APIs.
 servers:
   - url: https://studio.pixelixe.com/api
 components:

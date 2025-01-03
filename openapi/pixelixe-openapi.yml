@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Pixelixe API
+  version: '2.0'
+  description: >-
+    API for Pixelixe automated image generation and customizable graphic editing
+    tools.
+servers:
+  - url: https://studio.pixelixe.com/api
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+paths:
+  /authentication/v2:
+    get:
+      summary: Authenticate API Key
+      description: Validates the API key provided in the Authorization header.
+      responses:
+        '200':
+          description: Successful authentication.
+          content:
+            application/json:
+              example:
+                status: success
+                message: Authenticated successfully
+  /document/search/v2:
+    get:
+      summary: Search Documents
+      description: Retrieve documents based on optional query parameters.
+      parameters:
+        - name: document_uid
+          in: query
+          description: Unique identifier for the document.
+          schema:
+            type: string
+        - name: user_uid
+          in: query
+          description: Unique identifier for the user.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document search results.
+          content:
+            application/json:
+              example:
+                documents:
+                  - name: Demo-template-1
+                    width: 600
+                    height: 600
+                    document_uid: 32f59312815640e186cf17fe3fd5c1d9
+                    last_modification_date: 03-08-2021_20:38:21:579
+                    public_png_url: https://example.com/image.png
+  /document/delete/v2:
+    delete:
+      summary: Delete a Document
+      description: Deletes a specific document by UID.
+      parameters:
+        - name: document_uid
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document deleted successfully.
+          content:
+            application/json:
+              example:
+                status: success
+                message: Document deleted.
+  /graphic/automation/v2:
+    post:
+      summary: Automate Image Generation
+      description: Generate image variations based on templates.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              document_uid: 32f59312815640e186cf17fe3fd5c1d9
+              api_key: your_api_key
+              format: json
+              modifications:
+                - element_name: background-image
+                  image_url: https://example.com/image.jpg
+                  visible: true
+      responses:
+        '200':
+          description: Image generation successful.
+          content:
+            application/json:
+              example:
+                status: success
+                created_at: 03-13-2021_20-1-23-812
+                image_url: https://example.com/generated-image.png

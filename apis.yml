@@ -9,6 +9,8 @@ apis:
     properties:
       - url: https://pixelixe.com/image-editing-api.html
         type: Documentation
+      - type: OpenAPI
+        url: properties/pixelixe-openapi.yml
     description: |-
 
       High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,

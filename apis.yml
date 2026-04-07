@@ -1,13 +1,12 @@
 aid: pixelixe
-url: 
-  https://raw.githubusercontent.com/api-search/pixelixe/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-search/pixelixe/refs/heads/main/apis.yml
 apis:
   - aid: pixelixe:pixelixe
     name: Pixelixe
     tags:
-      - Images
-      - Graphics
       - Documents
+      - Graphics
+      - Images
     humanURL: https://pixelixe.com/image-editing-api.html
     properties:
       - url: https://pixelixe.com/image-editing-api.html
@@ -19,8 +18,8 @@ apis:
       Opacify, Blur and transform your photos with APIs.
 name: Pixelixe
 tags:
-  - Images
   - Graphics
+  - Images
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party

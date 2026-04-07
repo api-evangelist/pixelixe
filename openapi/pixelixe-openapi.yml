@@ -28,6 +28,8 @@ paths:
               example:
                 status: success
                 message: Authenticated successfully
+      tags:
+        - Authentication
   /document/search/v2:
     get:
       summary: Pixelixe Search Documents
@@ -56,6 +58,8 @@ paths:
                     document_uid: 32f59312815640e186cf17fe3fd5c1d9
                     last_modification_date: 03-08-2021_20:38:21:579
                     public_png_url: https://example.com/image.png
+      tags:
+        - Document
   /document/delete/v2:
     delete:
       summary: Pixelixe Delete a Document
@@ -74,6 +78,8 @@ paths:
               example:
                 status: success
                 message: Document deleted.
+      tags:
+        - Document
   /graphic/automation/v2:
     post:
       summary: Pixelixe Automate Image Generation
@@ -99,3 +105,9 @@ paths:
                 status: success
                 created_at: 03-13-2021_20-1-23-812
                 image_url: https://example.com/generated-image.png
+      tags:
+        - Graphic
+tags:
+  - name: Authentication
+  - name: Document
+  - name: Graphic

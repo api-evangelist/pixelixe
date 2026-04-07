@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Pixelixe
   version: '2.0'
-  description: |-
+  description: |2-
 
     High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,
     Contrast, Opacify, Blur and transform your photos with APIs.
@@ -18,7 +18,7 @@ security:
 paths:
   /authentication/v2:
     get:
-      summary: Authenticate API Key
+      summary: Pixelixe Authenticate API Key
       description: Validates the API key provided in the Authorization header.
       responses:
         '200':
@@ -30,7 +30,7 @@ paths:
                 message: Authenticated successfully
   /document/search/v2:
     get:
-      summary: Search Documents
+      summary: Pixelixe Search Documents
       description: Retrieve documents based on optional query parameters.
       parameters:
         - name: document_uid
@@ -58,7 +58,7 @@ paths:
                     public_png_url: https://example.com/image.png
   /document/delete/v2:
     delete:
-      summary: Delete a Document
+      summary: Pixelixe Delete a Document
       description: Deletes a specific document by UID.
       parameters:
         - name: document_uid
@@ -76,7 +76,7 @@ paths:
                 message: Document deleted.
   /graphic/automation/v2:
     post:
-      summary: Automate Image Generation
+      summary: Pixelixe Automate Image Generation
       description: Generate image variations based on templates.
       requestBody:
         required: true

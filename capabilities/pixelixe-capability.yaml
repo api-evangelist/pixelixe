@@ -1,0 +1,191 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pixelixe
+  description: High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate, Contrast, Opacify, Blur and transform
+    your photos with APIs.
+  tags:
+  - Pixelixe
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: pixelixe
+    baseUri: https://studio.pixelixe.com/api
+    description: Pixelixe HTTP API.
+    authentication:
+      type: bearer
+      token: '{{PIXELIXE_TOKEN}}'
+    resources:
+    - name: authentication-v2
+      path: /authentication/v2
+      operations:
+      - name: get-authentication-v2
+        method: GET
+        description: Pixelixe Authenticate API Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: document-search-v2
+      path: /document/search/v2
+      operations:
+      - name: get-document-search-v2
+        method: GET
+        description: Pixelixe Search Documents
+        inputParameters:
+        - name: document_uid
+          in: query
+          type: string
+          description: Unique identifier for the document.
+        - name: user_uid
+          in: query
+          type: string
+          description: Unique identifier for the user.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: document-delete-v2
+      path: /document/delete/v2
+      operations:
+      - name: delete-document-delete-v2
+        method: DELETE
+        description: Pixelixe Delete a Document
+        inputParameters:
+        - name: document_uid
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: graphic-automation-v2
+      path: /graphic/automation/v2
+      operations:
+      - name: post-graphic-automation-v2
+        method: POST
+        description: Pixelixe Automate Image Generation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: pixelixe-rest
+    description: REST adapter for Pixelixe.
+    resources:
+    - path: /authentication/v2
+      name: get-authentication-v2
+      operations:
+      - method: GET
+        name: get-authentication-v2
+        description: Pixelixe Authenticate API Key
+        call: pixelixe.get-authentication-v2
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /document/search/v2
+      name: get-document-search-v2
+      operations:
+      - method: GET
+        name: get-document-search-v2
+        description: Pixelixe Search Documents
+        call: pixelixe.get-document-search-v2
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /document/delete/v2
+      name: delete-document-delete-v2
+      operations:
+      - method: DELETE
+        name: delete-document-delete-v2
+        description: Pixelixe Delete a Document
+        call: pixelixe.delete-document-delete-v2
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /graphic/automation/v2
+      name: post-graphic-automation-v2
+      operations:
+      - method: POST
+        name: post-graphic-automation-v2
+        description: Pixelixe Automate Image Generation
+        call: pixelixe.post-graphic-automation-v2
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: pixelixe-mcp
+    transport: http
+    description: MCP adapter for Pixelixe for AI agent use.
+    tools:
+    - name: get-authentication-v2
+      description: Pixelixe Authenticate API Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pixelixe.get-authentication-v2
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-document-search-v2
+      description: Pixelixe Search Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pixelixe.get-document-search-v2
+      with:
+        document_uid: tools.document_uid
+        user_uid: tools.user_uid
+      inputParameters:
+      - name: document_uid
+        type: string
+        description: Unique identifier for the document.
+      - name: user_uid
+        type: string
+        description: Unique identifier for the user.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-document-delete-v2
+      description: Pixelixe Delete a Document
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: pixelixe.delete-document-delete-v2
+      with:
+        document_uid: tools.document_uid
+      inputParameters:
+      - name: document_uid
+        type: string
+        description: document_uid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-graphic-automation-v2
+      description: Pixelixe Automate Image Generation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pixelixe.post-graphic-automation-v2
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    PIXELIXE_TOKEN: PIXELIXE_TOKEN

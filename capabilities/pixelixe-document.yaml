@@ -1,0 +1,126 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pixelixe — Document
+  description: 'Pixelixe — Document. 2 operations. Lead operation: Pixelixe Delete a Document. Self-contained Naftiko capability
+    covering one Pixelixe business surface.'
+  tags:
+  - Pixelixe
+  - Document
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PIXELIXE_API_KEY: PIXELIXE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pixelixe-document
+    baseUri: https://studio.pixelixe.com/api
+    description: Pixelixe — Document business capability. Self-contained, no shared references.
+    resources:
+    - name: document-delete-v2
+      path: /document/delete/v2
+      operations:
+      - name: delete
+        method: DELETE
+        description: Pixelixe Delete a Document
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_uid
+          in: query
+          type: string
+          required: true
+    - name: document-search-v2
+      path: /document/search/v2
+      operations:
+      - name: get
+        method: GET
+        description: Pixelixe Search Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: document_uid
+          in: query
+          type: string
+          description: Unique identifier for the document.
+        - name: user_uid
+          in: query
+          type: string
+          description: Unique identifier for the user.
+    authentication:
+      type: bearer
+      token: '{{env.PIXELIXE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: pixelixe-document-rest
+    port: 8080
+    description: REST adapter for Pixelixe — Document. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/document/delete/v2
+      name: document-delete-v2
+      description: REST surface for document-delete-v2.
+      operations:
+      - method: DELETE
+        name: delete
+        description: Pixelixe Delete a Document
+        call: pixelixe-document.delete
+        with:
+          document_uid: rest.document_uid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/document/search/v2
+      name: document-search-v2
+      description: REST surface for document-search-v2.
+      operations:
+      - method: GET
+        name: get
+        description: Pixelixe Search Documents
+        call: pixelixe-document.get
+        with:
+          document_uid: rest.document_uid
+          user_uid: rest.user_uid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pixelixe-document-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pixelixe — Document. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: pixelixe-delete-document
+      description: Pixelixe Delete a Document
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: pixelixe-document.delete
+      with:
+        document_uid: tools.document_uid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pixelixe-search-documents
+      description: Pixelixe Search Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pixelixe-document.get
+      with:
+        document_uid: tools.document_uid
+        user_uid: tools.user_uid
+      outputParameters:
+      - type: object
+        mapping: $.

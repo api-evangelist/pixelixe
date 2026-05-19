@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pixelixe — Authentication
+  description: 'Pixelixe — Authentication. 1 operations. Lead operation: Pixelixe Authenticate API Key. Self-contained Naftiko
+    capability covering one Pixelixe business surface.'
+  tags:
+  - Pixelixe
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PIXELIXE_API_KEY: PIXELIXE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pixelixe-authentication
+    baseUri: https://studio.pixelixe.com/api
+    description: Pixelixe — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: authentication-v2
+      path: /authentication/v2
+      operations:
+      - name: get
+        method: GET
+        description: Pixelixe Authenticate API Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PIXELIXE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: pixelixe-authentication-rest
+    port: 8080
+    description: REST adapter for Pixelixe — Authentication. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/authentication/v2
+      name: authentication-v2
+      description: REST surface for authentication-v2.
+      operations:
+      - method: GET
+        name: get
+        description: Pixelixe Authenticate API Key
+        call: pixelixe-authentication.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pixelixe-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pixelixe — Authentication. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: pixelixe-authenticate-api-key
+      description: Pixelixe Authenticate API Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pixelixe-authentication.get
+      outputParameters:
+      - type: object
+        mapping: $.

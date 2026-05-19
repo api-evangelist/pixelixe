@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Pixelixe — Graphic
+  description: 'Pixelixe — Graphic. 1 operations. Lead operation: Pixelixe Automate Image Generation. Self-contained Naftiko
+    capability covering one Pixelixe business surface.'
+  tags:
+  - Pixelixe
+  - Graphic
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PIXELIXE_API_KEY: PIXELIXE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: pixelixe-graphic
+    baseUri: https://studio.pixelixe.com/api
+    description: Pixelixe — Graphic business capability. Self-contained, no shared references.
+    resources:
+    - name: graphic-automation-v2
+      path: /graphic/automation/v2
+      operations:
+      - name: post
+        method: POST
+        description: Pixelixe Automate Image Generation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.PIXELIXE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: pixelixe-graphic-rest
+    port: 8080
+    description: REST adapter for Pixelixe — Graphic. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/graphic/automation/v2
+      name: graphic-automation-v2
+      description: REST surface for graphic-automation-v2.
+      operations:
+      - method: POST
+        name: post
+        description: Pixelixe Automate Image Generation
+        call: pixelixe-graphic.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pixelixe-graphic-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Pixelixe — Graphic. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: pixelixe-automate-image-generation
+      description: Pixelixe Automate Image Generation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pixelixe-graphic.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

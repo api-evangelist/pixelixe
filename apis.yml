@@ -1,5 +1,8 @@
 aid: pixelixe
 url: https://raw.githubusercontent.com/api-evangelist/pixelixe/refs/heads/main/apis.yml
+common:
+  - type: GitHubOrganization
+    url: https://github.com/pixelixe
 apis:
 - aid: pixelixe:pixelixe
   name: Pixelixe

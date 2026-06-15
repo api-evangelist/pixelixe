@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pixelixe",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pixelixe Authenticate API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://studio.pixelixe.com/api/authentication/v2"
+          },
+          "docs": "Validates the API key provided in the Authorization header."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Document",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pixelixe Search Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://studio.pixelixe.com/api/document/search/v2",
+            "params": [
+              {
+                "name": "document_uid",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier for the document."
+              },
+              {
+                "name": "user_uid",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier for the user."
+              }
+            ]
+          },
+          "docs": "Retrieve documents based on optional query parameters."
+        },
+        {
+          "info": {
+            "name": "Pixelixe Delete a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://studio.pixelixe.com/api/document/delete/v2",
+            "params": [
+              {
+                "name": "document_uid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a specific document by UID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Graphic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pixelixe Automate Image Generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://studio.pixelixe.com/api/graphic/automation/v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate image variations based on templates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

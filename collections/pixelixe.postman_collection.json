@@ -1,0 +1,444 @@
+{
+  "item": [
+    {
+      "id": "e43eac43-4f0d-4503-bf15-51bc64139b2f",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "604e70ea-692d-4425-b11d-917226ec55cf",
+          "name": "Pixelixe Authenticate API Key",
+          "request": {
+            "name": "Pixelixe Authenticate API Key",
+            "description": {
+              "content": "Validates the API key provided in the Authorization header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "authentication",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ca6ef94-a8bd-408b-b0f9-54e041385234",
+              "name": "Successful authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "authentication",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Authenticated successfully\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4b8c4b8a-50c8-4df2-b22f-e01fa5379d91",
+      "name": "Document",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f0de953-10c8-4f19-870f-c23edd87b6d5",
+          "name": "Pixelixe Search Documents",
+          "request": {
+            "name": "Pixelixe Search Documents",
+            "description": {
+              "content": "Retrieve documents based on optional query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "search",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "document_uid",
+                  "value": "<string>",
+                  "description": "Unique identifier for the document."
+                },
+                {
+                  "disabled": false,
+                  "key": "user_uid",
+                  "value": "<string>",
+                  "description": "Unique identifier for the user."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ad865bb-6483-4305-8e52-55503d770122",
+              "name": "Document search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "search",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "document_uid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_uid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"name\": \"Demo-template-1\",\n      \"width\": 600,\n      \"height\": 600,\n      \"document_uid\": \"32f59312815640e186cf17fe3fd5c1d9\",\n      \"last_modification_date\": \"03-08-2021_20:38:21:579\",\n      \"public_png_url\": \"https://example.com/image.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a071d13-4b4e-4b9c-9832-eb17825d1ee5",
+          "name": "Pixelixe Delete a Document",
+          "request": {
+            "name": "Pixelixe Delete a Document",
+            "description": {
+              "content": "Deletes a specific document by UID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "delete",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "document_uid",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57d3acae-6788-4cc4-9341-96a221d9d03e",
+              "name": "Document deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "delete",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "document_uid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Document deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fba2230d-3e24-4816-98ed-7ad841deb975",
+      "name": "Graphic",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0985954-71fc-45d2-b9fd-0ddb09ddb002",
+          "name": "Pixelixe Automate Image Generation",
+          "request": {
+            "name": "Pixelixe Automate Image Generation",
+            "description": {
+              "content": "Generate image variations based on templates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphic",
+                "automation",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document_uid\": \"32f59312815640e186cf17fe3fd5c1d9\",\n  \"api_key\": \"your_api_key\",\n  \"format\": \"json\",\n  \"modifications\": [\n    {\n      \"element_name\": \"background-image\",\n      \"image_url\": \"https://example.com/image.jpg\",\n      \"visible\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ef61681-b338-42d3-8d30-267fd82ce30f",
+              "name": "Image generation successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphic",
+                    "automation",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"document_uid\": \"32f59312815640e186cf17fe3fd5c1d9\",\n  \"api_key\": \"your_api_key\",\n  \"format\": \"json\",\n  \"modifications\": [\n    {\n      \"element_name\": \"background-image\",\n      \"image_url\": \"https://example.com/image.jpg\",\n      \"visible\": true\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"created_at\": \"03-13-2021_20-1-23-812\",\n  \"image_url\": \"https://example.com/generated-image.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://studio.pixelixe.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f86b7a4a-e71c-4898-809f-29f709ff5738",
+    "name": "Pixelixe",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nHigh-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,\nContrast, Opacify, Blur and transform your photos with APIs.",
+      "type": "text/plain"
+    }
+  }
+}

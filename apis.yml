@@ -3,7 +3,7 @@ url: https://raw.githubusercontent.com/api-evangelist/pixelixe/refs/heads/main/a
 common:
   - type: GitHubOrganization
     url: https://github.com/pixelixe
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://pixelixe.com/llms.txt
 apis:
   - aid: pixelixe:pixelixe

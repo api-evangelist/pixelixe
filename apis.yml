@@ -1,10 +1,16 @@
 aid: pixelixe
 url: https://raw.githubusercontent.com/api-evangelist/pixelixe/refs/heads/main/apis.yml
 common:
+  - type: DomainSecurity
+    url: security/pixelixe-domain-security.yml
+  - type: Authentication
+    url: authentication/pixelixe-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/pixelixe
   - type: LlmsText
     url: https://pixelixe.com/llms.txt
+  - url: https://pixelixe.com/blog
+    type: Blog
 apis:
   - aid: pixelixe:pixelixe
     name: Pixelixe

@@ -1,6 +1,8 @@
 aid: pixelixe
 url: https://raw.githubusercontent.com/api-evangelist/pixelixe/refs/heads/main/apis.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/pixelixe-agentic-access.yml
   - type: DomainSecurity
     url: security/pixelixe-domain-security.yml
   - type: Authentication

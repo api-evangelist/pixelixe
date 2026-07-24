@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  title: Pixelixe Authentication Document API
+  version: '2.0'
+  description: '
+
+    High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,
+
+    Contrast, Opacify, Blur and transform your photos with APIs.'
+servers:
+- url: https://studio.pixelixe.com/api
+security:
+- bearerAuth: []
+tags:
+- name: Document
+paths:
+  /document/search/v2:
+    get:
+      summary: Pixelixe Search Documents
+      description: Retrieve documents based on optional query parameters.
+      parameters:
+      - name: document_uid
+        in: query
+        description: Unique identifier for the document.
+        schema:
+          type: string
+      - name: user_uid
+        in: query
+        description: Unique identifier for the user.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Document search results.
+          content:
+            application/json:
+              example:
+                documents:
+                - name: Demo-template-1
+                  width: 600
+                  height: 600
+                  document_uid: 32f59312815640e186cf17fe3fd5c1d9
+                  last_modification_date: 03-08-2021_20:38:21:579
+                  public_png_url: https://example.com/image.png
+      tags:
+      - Document
+  /document/delete/v2:
+    delete:
+      summary: Pixelixe Delete a Document
+      description: Deletes a specific document by UID.
+      parameters:
+      - name: document_uid
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Document deleted successfully.
+          content:
+            application/json:
+              example:
+                status: success
+                message: Document deleted.
+      tags:
+      - Document
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

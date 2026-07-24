@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: Pixelixe Authentication Graphic API
+  version: '2.0'
+  description: '
+
+    High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,
+
+    Contrast, Opacify, Blur and transform your photos with APIs.'
+servers:
+- url: https://studio.pixelixe.com/api
+security:
+- bearerAuth: []
+tags:
+- name: Graphic
+paths:
+  /graphic/automation/v2:
+    post:
+      summary: Pixelixe Automate Image Generation
+      description: Generate image variations based on templates.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              document_uid: 32f59312815640e186cf17fe3fd5c1d9
+              api_key: your_api_key
+              format: json
+              modifications:
+              - element_name: background-image
+                image_url: https://example.com/image.jpg
+                visible: true
+      responses:
+        '200':
+          description: Image generation successful.
+          content:
+            application/json:
+              example:
+                status: success
+                created_at: 03-13-2021_20-1-23-812
+                image_url: https://example.com/generated-image.png
+      tags:
+      - Graphic
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

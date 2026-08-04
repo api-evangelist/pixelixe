@@ -1,0 +1,18 @@
+{
+  "provider": "pixelixe",
+  "sources": [
+    "pixelixe-authentication-api-openapi.yml",
+    "pixelixe-document-api-openapi.yml",
+    "pixelixe-graphic-api-openapi.yml"
+  ],
+  "outputs": [
+    "pixelixe-authentication-api-openapi.yml",
+    "pixelixe-document-api-openapi.yml",
+    "pixelixe-graphic-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

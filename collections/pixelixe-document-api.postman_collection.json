@@ -1,0 +1,239 @@
+{
+  "item": [
+    {
+      "id": "b586dc5f-1050-410b-a8a8-8d64c77347d3",
+      "name": "Document",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5adccaf4-450f-4ed6-a197-f9d21b47688d",
+          "name": "Pixelixe Search Documents",
+          "request": {
+            "name": "Pixelixe Search Documents",
+            "description": {
+              "content": "Retrieve documents based on optional query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "search",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "document_uid",
+                  "value": "<string>",
+                  "description": "Unique identifier for the document."
+                },
+                {
+                  "disabled": false,
+                  "key": "user_uid",
+                  "value": "<string>",
+                  "description": "Unique identifier for the user."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b3cf51b-c151-44db-9eae-e99f1f9865a5",
+              "name": "Document search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "search",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "document_uid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_uid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documents\": [\n    {\n      \"name\": \"Demo-template-1\",\n      \"width\": 600,\n      \"height\": 600,\n      \"document_uid\": \"32f59312815640e186cf17fe3fd5c1d9\",\n      \"last_modification_date\": \"03-08-2021_20:38:21:579\",\n      \"public_png_url\": \"https://example.com/image.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8c4e8c3-5d1c-4b74-ad21-e92bf675b04e",
+          "name": "Pixelixe Delete a Document",
+          "request": {
+            "name": "Pixelixe Delete a Document",
+            "description": {
+              "content": "Deletes a specific document by UID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "document",
+                "delete",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "document_uid",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8ab10a3-9c70-4665-9f86-aaed9cd110d8",
+              "name": "Document deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "document",
+                    "delete",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "document_uid",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Document deleted.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://studio.pixelixe.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d5479d1b-f523-4b42-9dff-9e17bf4bba3e",
+    "name": "Pixelixe Authentication Document API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nHigh-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,\nContrast, Opacify, Blur and transform your photos with APIs.",
+      "type": "text/plain"
+    }
+  }
+}

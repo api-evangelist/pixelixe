@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pixelixe Authentication Graphic API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Graphic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pixelixe Automate Image Generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://studio.pixelixe.com/api/graphic/automation/v2",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate image variations based on templates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

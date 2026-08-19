@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "63586e93-6586-4d14-bf79-a3adf0589fe3",
+      "name": "Graphic",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4a45ad4-8c03-42c6-bae0-3e47a8324312",
+          "name": "Pixelixe Automate Image Generation",
+          "request": {
+            "name": "Pixelixe Automate Image Generation",
+            "description": {
+              "content": "Generate image variations based on templates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graphic",
+                "automation",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document_uid\": \"32f59312815640e186cf17fe3fd5c1d9\",\n  \"api_key\": \"your_api_key\",\n  \"format\": \"json\",\n  \"modifications\": [\n    {\n      \"element_name\": \"background-image\",\n      \"image_url\": \"https://example.com/image.jpg\",\n      \"visible\": true\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc4517b7-fc5d-4b1e-904d-96d887e2621a",
+              "name": "Image generation successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graphic",
+                    "automation",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"document_uid\": \"32f59312815640e186cf17fe3fd5c1d9\",\n  \"api_key\": \"your_api_key\",\n  \"format\": \"json\",\n  \"modifications\": [\n    {\n      \"element_name\": \"background-image\",\n      \"image_url\": \"https://example.com/image.jpg\",\n      \"visible\": true\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"created_at\": \"03-13-2021_20-1-23-812\",\n  \"image_url\": \"https://example.com/generated-image.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://studio.pixelixe.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "924d06b1-1e4a-4c21-acee-749644d0ee3a",
+    "name": "Pixelixe Authentication Graphic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nHigh-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate,\nContrast, Opacify, Blur and transform your photos with APIs.",
+      "type": "text/plain"
+    }
+  }
+}

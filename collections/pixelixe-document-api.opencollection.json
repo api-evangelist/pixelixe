@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pixelixe Authentication Document API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Pixelixe Search Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://studio.pixelixe.com/api/document/search/v2",
+            "params": [
+              {
+                "name": "document_uid",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier for the document."
+              },
+              {
+                "name": "user_uid",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier for the user."
+              }
+            ]
+          },
+          "docs": "Retrieve documents based on optional query parameters."
+        },
+        {
+          "info": {
+            "name": "Pixelixe Delete a Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://studio.pixelixe.com/api/document/delete/v2",
+            "params": [
+              {
+                "name": "document_uid",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a specific document by UID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -53,6 +53,9 @@ apis:
 name: Pixelixe
 tags:
   - Graphics
+  - Image
+tags_raw:
+  - Graphics
   - Images
 kind: contract
 accessModel:

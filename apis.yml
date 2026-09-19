@@ -34,6 +34,8 @@ apis:
   humanURL: https://pixelixe.com/image-editing-api.html
   baseURL: https://studio.pixelixe.com/api
   tags:
+  - Documents
+  tags_raw:
   - Document
   properties:
   - type: OpenAPI

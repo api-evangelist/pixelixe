@@ -1,9 +1,7 @@
 {
   "provider": "pixelixe",
   "sources": [
-    "pixelixe-authentication-api-openapi.yml",
-    "pixelixe-document-api-openapi.yml",
-    "pixelixe-graphic-api-openapi.yml"
+    "_original/pixelixe-openapi.yml"
   ],
   "outputs": [
     "pixelixe-authentication-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "pixelixe-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "pixelixe-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pixelixe-document-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pixelixe-graphic-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

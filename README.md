@@ -1,4 +1,4 @@
-# Pixelixe (pixelixe)
+# Pixelixe
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,51 +66,119 @@
 
 Pixelixe is a comprehensive online design tool that allows users to create professional-quality graphics quickly and easily. With a user-friendly interface and a wide range of templates, images, and fonts to choose from, Pixelixe is perfect for individuals and businesses looking to enhance their online presence. Whether you need to design social media graphics, blog images, or marketing materials, Pixelixe offers the tools and resources needed to bring your vision to life.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/pixelixe/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/pixelixe/refs/heads/main/apis.yml)
+**Areas:** Graphics · Image
 
-## Scope
+## Pixelixe on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Pixelixe is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pixelixe/](https://apis.io/providers/pixelixe/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Graphics
-- Images
+- [Pixelixe Authentication API](https://apis.io/apis/pixelixe/pixelixe-authentication-api/) — The Authentication API from Pixelixe — 1 operation(s) for authentication.
+- [Pixelixe Document API](https://apis.io/apis/pixelixe/pixelixe-document-api/) — The Document API from Pixelixe — 2 operation(s) for document.
+- [Pixelixe Graphic API](https://apis.io/apis/pixelixe/pixelixe-graphic-api/) — The Graphic API from Pixelixe — 1 operation(s) for graphic.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-11-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Pixelixe
+Which operations an agent can call, which act, and which need a human in the loop.
 
-High-quality and ultra-fast Image Editing API. Resize, Crop, Flip, Rotate, Contrast, Opacify, Blur and transform your photos with APIs.
+- [Pixelixe Agentic Access](https://apis.io/agentic-access/pixelixe/pixelixe-agentic-access/)
 
-- **Human URL:** [https://pixelixe.com/image-editing-api.html](https://pixelixe.com/image-editing-api.html)
-- **Base URL:** `https://studio.pixelixe.com/api`
+#### Collections (4)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Documents
-- Graphics
-- Images
+- [Pixelixe](https://apis.io/collections/pixelixe/open-pixelixe/)
+- [Pixelixe Authentication API](https://apis.io/collections/pixelixe/open-pixelixe-authentication-api/)
+- [Pixelixe Authentication Document API](https://apis.io/collections/pixelixe/open-pixelixe-document-api/)
+- [Pixelixe Authentication Graphic API](https://apis.io/collections/pixelixe/open-pixelixe-graphic-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://pixelixe.com/image-editing-api.html)
-- [OpenAPI](openapi/pixelixe-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/pixelixe.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pixelixe.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Pixelixe Authentication](https://apis.io/security/pixelixe/pixelixe-authentication/)
+- [Pixelixe Domain Security](https://apis.io/security/pixelixe/pixelixe-domain-security/)
 
-- [GitHub Organization](https://github.com/pixelixe)
-- [L L Ms Txt](https://pixelixe.com/llms.txt)
+#### Plans and pricing (1)
 
-## Maintainers
+Published plans, tiers and prices.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- [Pixelixe Plans Pricing](https://apis.io/plans/pixelixe/pixelixe-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Pixelixe Rate Limits](https://apis.io/rate-limits/pixelixe/pixelixe-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Pixelixe Finops](https://apis.io/finops/pixelixe/pixelixe-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.pixelixe.com/)
+- [Blog](https://pixelixe.com/blog)
+- [GitHub](https://github.com/pixelixe)
+
+## API Evangelist rating
+
+**Kin Score 25.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 49.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pixelixe/](https://apis.io/providers/pixelixe/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pixelixe: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pixelixe/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
